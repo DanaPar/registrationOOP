@@ -1,4 +1,5 @@
 <?php
+namespace RegistrationForm;
 
 class UserValidator {
     public function validateFields($data){

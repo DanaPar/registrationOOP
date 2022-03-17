@@ -1,11 +1,12 @@
 <?php
-
+namespace RegistrationForm;
+use PDO;
 class UserRepository
 {
 
     public $servername = "localhost";
     public $username = "root";
-    public $db_password = "";
+    public $db_password = "123456";
     public $db_name = "registration_form";
 
 

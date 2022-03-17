@@ -1,4 +1,5 @@
 <?php
+namespace RegistrationForm;
 
 class UserService {
     public function register(){

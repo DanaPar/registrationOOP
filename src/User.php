@@ -1,4 +1,5 @@
 <?php
+namespace RegistrationForm;
 
 class User {
     public $name;
