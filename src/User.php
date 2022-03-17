@@ -2,12 +2,12 @@
 namespace RegistrationForm;
 
 class User {
-    public $name;
-    public $last_name;
-    public $email;
-    public $phone;
-    public $password;
-    public $confirmed_password;
+    private $name;
+    private $last_name;
+    private $email;
+    private $phone;
+    private $password;
+    private $confirmed_password;
 
     public function __construct($name, $last_name, $email, $phone, $password, $confirmed_password){
         $this->name = $name;

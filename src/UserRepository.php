@@ -1,6 +1,8 @@
 <?php
 namespace RegistrationForm;
 use PDO;
+use PDOException;
+
 class UserRepository
 {
 
@@ -8,6 +10,7 @@ class UserRepository
     public $username = "root";
     public $db_password = "123456";
     public $db_name = "registration_form";
+
 
 
     public function dbConnection(User $new_user)
@@ -30,12 +33,18 @@ class UserRepository
 
             $stmt = $conn->prepare($sql);
 
-            $hashed_password = password_hash($new_user->password, PASSWORD_DEFAULT);
 
-            $stmt->bindParam(':firstname', $new_user->name);
-            $stmt->bindParam(':secondname', $new_user->last_name);
-            $stmt->bindParam(':email', $new_user->email);
-            $stmt->bindParam(':phone', $new_user->phone);
+
+            $name = $new_user->name();
+            $last_name = $new_user->lastName();
+            $email = $new_user->email();
+            $phone = $new_user->phone();
+            $hashed_password = password_hash($new_user->password(), PASSWORD_DEFAULT);
+
+            $stmt->bindParam(':firstname', $name);
+            $stmt->bindParam(':secondname', $last_name);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':phone', $phone);
             $stmt->bindParam(':password', $hashed_password);
 
 
