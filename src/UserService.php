@@ -9,8 +9,7 @@ class UserService {
     private $password;
     private $confirmed_password;
 
-
-    public function __construct($name, $last_name, $email, $phone, $password, $confirmed_password){
+    public function __construct(string $name, string $last_name, string $email, string $phone, string $password, string $confirmed_password){
         $this->name = $name;
         $this->last_name = $last_name;
         $this->email = $email;
@@ -18,7 +17,7 @@ class UserService {
         $this->password = $password;
         $this->confirmed_password = $confirmed_password;
     }
-    public function register(){
+    public function register(): void {
 
         $new_user = new User($this->name, $this->last_name, $this->email, $this->phone, $this->password, $this->confirmed_password);
         $validate = new UserValidator();

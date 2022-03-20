@@ -9,7 +9,7 @@ class User {
     private $password;
     private $confirmed_password;
 
-    public function __construct($name, $last_name, $email, $phone, $password, $confirmed_password){
+    public function __construct(string $name, string $last_name, string $email, string $phone, string $password, string $confirmed_password){
         $this->name = $name;
         $this->last_name = $last_name;
         $this->email = $email;

@@ -6,14 +6,14 @@ use PDOException;
 class UserRepository
 {
 
-    public $servername = "localhost";
-    public $username = "root";
-    public $db_password = "123456";
-    public $db_name = "registration_form";
+    private $servername = "localhost";
+    private $username = "root";
+    private $db_password = "123456";
+    private $db_name = "registration_form";
 
 
 
-    public function dbConnection(User $new_user)
+    public function dbConnection(User $new_user): void
     {
 
 

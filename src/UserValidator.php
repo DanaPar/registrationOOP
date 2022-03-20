@@ -2,7 +2,7 @@
 namespace RegistrationForm;
 
 class UserValidator {
-    private function validateFields($data){
+    private function validateFields(string $data): void {
         if(empty($data)){
             die("$data empty field");
         }
@@ -11,22 +11,22 @@ class UserValidator {
         }
     }
 
-    private function validateName(User $new_user){
+    private function validateName(User $new_user): void {
         $this->validateFields($new_user->name());
     }
 
-    private function validateLastName(User $new_user){
+    private function validateLastName(User $new_user): void {
         $this->validateFields($new_user->lastName());
     }
 
-    private function validateEmail(User $new_user){
+    private function validateEmail(User $new_user): void {
         if(!filter_var($new_user->email(), FILTER_VALIDATE_EMAIL)){
             die("try again");
         }
         $this->validateFields($new_user->email());
     }
 
-    private function validatePhone(User $new_user){
+    private function validatePhone(User $new_user): void {
         if(is_numeric($new_user->phone())) {
             if (mb_strlen($new_user->phone()) < 8) {
                 die("phone number too short");
@@ -40,7 +40,7 @@ class UserValidator {
         $this->validateFields($new_user->phone());
     }
 
-    public function validatePassword(User $new_user){
+    private function validatePassword(User $new_user): void {
         $this->validateFields($new_user->password());
         $this->validateFields($new_user->confirmedPassword());
         if($new_user->password() !== $new_user->confirmedPassword()){
@@ -48,7 +48,7 @@ class UserValidator {
         }
     }
 
-    public function validate(User $new_user){
+    public function validate(User $new_user): void{
         $this->validateName($new_user);
         $this->validateLastName($new_user);
         $this->validateEmail($new_user);

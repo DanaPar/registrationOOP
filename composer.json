@@ -3,5 +3,9 @@
       "psr-4": {
         "RegistrationForm\\": "src"
       }
-    }
+    },
+  "require": {
+    "ext-pdo": "*",
+    "ext-mbstring": "*"
+  }
 }
