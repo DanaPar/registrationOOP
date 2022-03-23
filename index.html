@@ -1,23 +1,30 @@
 <!DOCTYPE html>
-<html>
-    <head> 
+<html lang="en">
+    <head>
+        <title>Registration form</title>
     </head>
 
     <body> 
         
         <h1>Registration form</h1>
         <form  action="registrationform.php" method="post">
-            First name: <input type="text" name="name">
+            <label for="name">First name:</label>
+            <input type="text" name="name" id="name">
             <br><br>
-            Last name: <input type="text" name="last_name">
+            <label for="last_name">Last name:</label>
+            <input type="text" name="last_name" id="last_name">
             <br><br>
-            Email address: <input type="email" name ="email">
+            <label for="email">Email address:</label>
+            <input type="email" name ="email" id="email">
             <br><br>
-            Phone number: <input type="tel" name="phone">
+            <label for="phone">Phone number:</label>
+            <input type="tel" name="phone" id="phone">
             <br><br>
-            Password: <input type="password" name="password">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password">
             <br><br>
-            Confirm password: <input type="password" name="confirmed_password">
+            <label for="confirmed_password">Confirm password:</label>
+            <input type="password" name="confirmed_password" id="confirmed_password">
             <br><br>
             <input type="submit" name="submit">
         </form>
