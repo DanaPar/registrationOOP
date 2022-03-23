@@ -1,6 +1,8 @@
 <?php
 require ("vendor/autoload.php");
 use RegistrationForm\UserService;
+use RegistrationForm\User;
+
 
 
 $name = $_POST["name"];
@@ -11,8 +13,9 @@ $password = $_POST["password"];
 $confirmed_password = $_POST["confirmed_password"];
 
 
-$user = new UserService($name, $last_name, $email, $phone, $password, $confirmed_password);
-$user->register();
+$user = new User($name, $last_name, $email, $phone, $password, $confirmed_password);
+$service = new UserService();
+$service->register($user);
 
 
 

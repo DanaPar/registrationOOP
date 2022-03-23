@@ -2,28 +2,20 @@
 namespace RegistrationForm;
 
 class UserService {
-    private $name;
-    private $last_name;
-    private $email;
-    private $phone;
-    private $password;
-    private $confirmed_password;
+    private UserValidator $validator;
+    private UserRepository $repository;
 
-    public function __construct(string $name, string $last_name, string $email, string $phone, string $password, string $confirmed_password){
-        $this->name = $name;
-        $this->last_name = $last_name;
-        $this->email = $email;
-        $this->phone = $phone;
-        $this->password = $password;
-        $this->confirmed_password = $confirmed_password;
+    public function __construct(){
+        $this->validator = new UserValidator();
+        $this->repository = new UserRepository();
     }
-    public function register(): void {
 
-        $new_user = new User($this->name, $this->last_name, $this->email, $this->phone, $this->password, $this->confirmed_password);
-        $validate = new UserValidator();
-        $validate->validate($new_user);
-        $db = new UserRepository();
-        $db->dbConnection($new_user);
+    public function register(User $user): void {
+
+        $new_user = new User($user->name(), $user->lastName(), $user->email(), $user->phone(), $user->password(), $user->confirmedPassword());
+        $this->validator->validate($new_user);
+        $this->repository->dbConnection($new_user);
+
 
 
     }
